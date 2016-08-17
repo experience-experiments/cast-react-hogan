@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PDF PPC</title>
+	</head><body role="document">
+		<h1>Practices</h1>
+		{{#practices.length}}
+			<nav>
+				<ul>
+					{{#practices}}
+						<li><a href="/practices/{{_id}}">{{name}}</a></li>
+					{{/practices}}
+				</ul>
+			</nav>
+		{{/practices.length}}
+		{{^practices}}
+			<p>Nope</p>
+		{{/practices}}
+		{{> navigation}}
+	</body>
+</html>
