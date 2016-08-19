@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const app = require('./server');
 const http = require('http');
 
@@ -9,4 +11,4 @@ const server = http.createServer(app);
 
 server.listen(app.get('port'), '0.0.0.0');
 server.on('error', (e) => console.log(e));
-server.on('listening', () => console.log('[PDF POC]'));
+server.on('listening', () => console.log(`[PDF Service] ${app.get('port')}`));

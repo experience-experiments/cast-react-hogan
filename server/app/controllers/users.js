@@ -3,15 +3,14 @@ const path = require('path')
 const serverPath = path.resolve(process.cwd(), 'server')
 const usersModel = require(path.join(serverPath, 'app/models/users'))
 
-function getAllUsers () {
-  return usersModel.getAllUsers()
-}
-
-function getUser (id) {
-  return usersModel.getUser(id)
-}
+const getAllUsers = () => usersModel.getAllUsers()
+const getAllUsersViewModel = () => usersModel.getAllUsersViewModel()
+const getUser = (id) => usersModel.getUser(id)
+const getUserViewModel = (id) => usersModel.getUserViewModel(id)
 
 module.exports = {
   getAllUsers,
-  getUser
+  getAllUsersViewModel,
+  getUser,
+  getUserViewModel
 }

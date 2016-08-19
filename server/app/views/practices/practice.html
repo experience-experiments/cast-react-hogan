@@ -3,14 +3,39 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>PDF PPC</title>
+		<title>PDF Service</title>
 	</head><body role="document">
 		<h1>Practice</h1>
 		{{#practice}}
-			Yep
+			<dl>
+				<dt>name</dt>
+				<dd>{{name}}</dd>
+				<dt>owner</dt>
+				<dd>{{owner}}</dd>
+				{{#lineManagers.length}}
+					<dt>lineManagers</dt>
+					<dd>
+						<ul>
+							{{#lineManagers}}
+							<li>{{.}}</li>
+							{{/lineManagers}}
+						</ul>
+					</dd>
+				{{/lineManagers.length}}
+				{{#jobTitles.length}}
+					<dt>jobTitles</dt>
+					<dd>
+						<ul>
+							{{#jobTitles}}
+							<li>{{.}}</li>
+							{{/jobTitles}}
+						</ul>
+					</dd>
+				{{/jobTitles.length}}
+			</dl>
 		{{/practice}}
 		{{^practice}}
-			<p>Nope</p>
+			<p>No results.</p>
 		{{/practice}}
 	</body>
 </html>

@@ -3,15 +3,14 @@ const path = require('path')
 const serverPath = path.resolve(process.cwd(), 'server')
 const practicesModel = require(path.join(serverPath, 'app/models/practices'))
 
-function getAllPractices () {
-  return practicesModel.getAllPractices()
-}
-
-function getPractice (id) {
-  return practicesModel.getPractice(id)
-}
+const getAllPractices = () => practicesModel.getAllPractices()
+const getAllPracticesViewModel = () => practicesModel.getAllPracticesViewModel()
+const getPractice = (id) => practicesModel.getPractice(id)
+const getPracticeViewModel = (id) => practicesModel.getPracticeViewModel(id)
 
 module.exports = {
   getAllPractices,
-  getPractice
+  getAllPracticesViewModel,
+  getPractice,
+  getPracticeViewModel
 }
