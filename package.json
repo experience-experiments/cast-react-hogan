@@ -24,16 +24,17 @@
     "react": "^15.2.1",
     "react-dom": "^15.2.0",
     "react-router": "^2.5.2",
-    "react-routes-renderer": "^1.1.1"
+    "react-routes-renderer": "^1.1.1",
+    "react-rte": "^0.5.0"
   },
   "devDependencies": {
-    "gulp": "^3.8.11",
     "babel-loader": "^6.2.4",
+    "gulp": "^3.8.11",
     "gulp-clean": "^0.3.2",
     "gulp-develop-server": "^0.5.2",
     "gulp-jshint": "^2.0.1",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.4",
+    "gulp-uglify": "^2.0.0",
     "webpack-stream": "^3.2.0"
   },
   "peerDependencies": {

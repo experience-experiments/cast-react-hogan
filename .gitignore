@@ -41,4 +41,4 @@ pids
 coverage/
 npm-debug.log*
 
-public/assets/js/app/**.*
+./public/assets/js/app/**.*

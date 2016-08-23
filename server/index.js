@@ -3,36 +3,45 @@ const path = require('path')
 const app = express()
 
 const serverPath = path.resolve(process.cwd(), 'server')
-const clientPath = path.resolve(process.cwd(), 'client')
+// const clientPath = path.resolve(process.cwd(), 'client')
+const publicPath = path.resolve(process.cwd(), 'public')
 
 const appPath = path.join(serverPath, 'app')
 const mvcPath = path.join(appPath, 'mvc')
 // const apiPath = path.join(appPath, 'api')
-
-app.set('views', path.join(serverPath, 'app/mvc/views'))
-app.set('view engine', 'html')
-app.engine('html', require(path.join(serverPath, 'lib/express-hogan-cache')).createEngine())
 
 const practicesController = require(path.join(mvcPath, 'controllers/practices'))
 const profilesController = require(path.join(mvcPath, 'controllers/profiles'))
 const usersController = require(path.join(mvcPath, 'controllers/users'))
 const skillsController = require(path.join(mvcPath, 'controllers/skills'))
 
-const Renderer = require('react-routes-renderer').Renderer
-const renderer = new Renderer()
-const Routes = require(path.resolve(clientPath, 'app/components')).Routes
+// const Renderer = require('react-routes-renderer').Renderer
+// const renderer = new Renderer()
+// const Routes = require(path.resolve(clientPath, 'app/components')).Routes
+
+app.set('views', path.join(serverPath, 'app/mvc/views'))
+app.set('view engine', 'html')
+app.engine('html', require(path.join(serverPath, 'lib/express-hogan-cache')).createEngine())
+
+app.use('/assets', express.static(path.join(publicPath, 'assets')))
 
 app.get('/', function (req, res) {
   res.render('index')
 })
 
 app.get('/react', function (req, res) {
+  /*
+   *  'react-rte' currently has a dependency on the 'window' object
+   */
+  res.render('react/index')
+  /*
   renderer.render(Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered })
     })
     .catch((e) => res.send(e))
+  */
 })
 
 app.get('/hogan', function (req, res) {
