@@ -40,3 +40,5 @@ pids
 # Build Folders
 coverage/
 npm-debug.log*
+
+public/assets/js/app/**.*

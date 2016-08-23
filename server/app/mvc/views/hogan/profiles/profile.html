@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PDF Service</title>
+	</head><body role="document">
+		<section>
+			<h1>Profile</h1>
+			{{#profile}}
+				<dl>
+					<dt>emailAddress</dt>
+					<dd>{{emailAddress}}</dd>
+					<dt>name</dt>
+					<dd>{{name}}</dd>
+					<dt>practiceName</dt>
+					<dd>{{practiceName}}</dd>
+					{{#metaData}}
+						<dt>metaData</dt>
+						<dd>
+
+							<dl>
+								<dt>active</dt>
+								<dd>{{active}</dd>
+								<dt>creationDate</dt>
+								<dd>{{creationDate}}</dd>
+								<dt>lastUpdateDate</dt>
+								<dd>{{lastUpdateDate}}</dd>
+								<dt>lastUpdatedBy</dt>
+								<dd>{{lastUpdatedBy}}</dd>
+								<dt>ready</dt>
+								<dd>{{ready}}</dd>
+							</dl>
+						</dd>
+					{{/metaData}}
+				</dl>
+			{{/profile}}
+			{{^profile}}
+				<p>No results.</p>
+			{{/profile}}
+		</section>
+	</body>
+</html>

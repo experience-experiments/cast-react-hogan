@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PDF Service</title>
+	</head><body role="document">
+		<section>
+			<h1>Profiles</h1>
+			{{#profiles.length}}
+				<dl>
+					<dt>profiles</dt>
+					<dd>
+						<ul>
+							{{#profiles}}
+								<li><a href="/hogan/profiles/{{_id}}">{{name}}</a></li>
+							{{/profiles}}
+						</ul>
+					</dd>
+				</dl>
+			{{/profiles.length}}
+			{{^profiles}}
+				<p>No results.</p>
+			{{/profiles}}
+			{{> navigation}}
+		</section>
+	</body>
+</html>

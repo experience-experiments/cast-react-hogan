@@ -1,14 +1,13 @@
-/* eslint-disable */
 
-const app = require('./server');
-const http = require('http');
+const app = require('./server')
+const http = require('http')
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3001
 
-app.set('port', port);
+app.set('port', port)
 
-const server = http.createServer(app);
+const server = http.createServer(app)
 
-server.listen(app.get('port'), '0.0.0.0');
-server.on('error', (e) => console.log(e));
-server.on('listening', () => console.log(`[PDF Service] ${app.get('port')}`));
+server.listen(app.get('port'), '0.0.0.0')
+server.on('error', (e) => console.log(e))
+server.on('listening', () => console.log(`[RMA PDF Service] ${app.get('port')}`))
