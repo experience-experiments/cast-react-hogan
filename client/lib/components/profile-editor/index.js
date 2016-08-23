@@ -6,6 +6,9 @@ import {
   RichUtils
 } from 'draft-js'
 
+// import { stateToHTML } from 'draft-js-export-html'
+// import { stateToMarkdown } from 'draft-js-export-markdown'
+
 export default class ProfileEditor extends React.Component {
   state = {
     editorState: EditorState.createEmpty()
@@ -17,7 +20,12 @@ export default class ProfileEditor extends React.Component {
     if (keyCommandState) this.setState({ editorState: keyCommandState })
   }
 
-  onChange = (editorState) => this.setState({ editorState })
+  onChange = (editorState) => {
+    // stateToHTML(editorState.getCurrentContent())
+    // stateToMarkdown(editorState.getCurrentContent())
+
+    this.setState({ editorState })
+  }
 
   render () {
     const { editorState } = this.state
