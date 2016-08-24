@@ -197,7 +197,4 @@ app.get('/hogan/users/:user/view-model', function (req, res) {
     .catch((e) => res.send(e))
 })
 
-module.exports = {
-  api,
-  app
-}
+module.exports = app
