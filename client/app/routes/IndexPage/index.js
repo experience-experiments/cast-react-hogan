@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ProfileEditor from '../../../../lib/components/profile-editor'
+import ProfileEditor from '../../components/profile-editor'
 
 export default () => (
   <section>

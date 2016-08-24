@@ -15,9 +15,13 @@ const profilesController = require(path.join(mvcPath, 'controllers/profiles'))
 const usersController = require(path.join(mvcPath, 'controllers/users'))
 const skillsController = require(path.join(mvcPath, 'controllers/skills'))
 
-const Renderer = require('react-routes-renderer').Renderer
+const Renderer = require('redux-routes-renderer').Renderer
 const renderer = new Renderer()
-const Routes = require(path.resolve(clientPath, 'app/components')).Routes
+const Routes = require(path.resolve(clientPath, 'app/routes')).Routes
+
+const configureStore = require(path.resolve(clientPath, 'app/store')).configureStore
+
+const store = configureStore()
 
 app.set('views', path.join(serverPath, 'app/mvc/views'))
 app.set('view engine', 'html')
@@ -30,7 +34,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/react', function (req, res) {
-  renderer.render(Routes, req.url)
+  renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered })
