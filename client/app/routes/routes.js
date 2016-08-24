@@ -5,8 +5,7 @@ import IndexPath from './IndexPath'
 import IndexPage from './IndexPage'
 
 export default (
-  <Route path='/' component={IndexPath}>
+  <Route path='/react' component={IndexPath}>
     <IndexRoute component={IndexPage} />
-    <Route path='/react' component={IndexPage} />
   </Route>
 )
