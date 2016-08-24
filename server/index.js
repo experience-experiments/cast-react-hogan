@@ -1,6 +1,5 @@
 const express = require('express')
 const path = require('path')
-const app = express()
 
 const serverPath = path.resolve(process.cwd(), 'server')
 const clientPath = path.resolve(process.cwd(), 'client')
@@ -8,7 +7,7 @@ const publicPath = path.resolve(process.cwd(), 'public')
 
 const appPath = path.join(serverPath, 'app')
 const mvcPath = path.join(appPath, 'mvc')
-// const apiPath = path.join(appPath, 'api')
+const apiPath = path.join(appPath, 'api')
 
 const practicesController = require(path.join(mvcPath, 'controllers/practices'))
 const profilesController = require(path.join(mvcPath, 'controllers/profiles'))
@@ -23,11 +22,15 @@ const configureStore = require(path.resolve(clientPath, 'app/store')).configureS
 
 const store = configureStore()
 
+const app = express()
+const api = require(apiPath)
+
 app.set('views', path.join(serverPath, 'app/mvc/views'))
 app.set('view engine', 'html')
 app.engine('html', require(path.join(serverPath, 'lib/express-hogan-cache')).createEngine())
 
 app.use('/assets', express.static(path.join(publicPath, 'assets')))
+app.use('/api', api)
 
 app.get('/', function (req, res) {
   res.render('index')
@@ -194,4 +197,7 @@ app.get('/hogan/users/:user/view-model', function (req, res) {
     .catch((e) => res.send(e))
 })
 
-module.exports = app
+module.exports = {
+  api,
+  app
+}

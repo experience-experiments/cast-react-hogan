@@ -4,7 +4,9 @@ import { connect } from 'react-redux'
 import {
   Editor,
   EditorState,
-  RichUtils
+  RichUtils,
+  // convertFromRaw,
+  convertToRaw
 } from 'draft-js'
 
 import * as ProfileEditorActions from '../../../app/actions/profile-editor'
@@ -45,7 +47,8 @@ export default class ProfileEditor extends React.Component {
   toggleOL = () => this.toggleBlockType('ordered-list-item')
 
   handleSaveProfileClick = () => {
-    ProfileEditorActions.patchProfile('id', {})
+    const { editorState } = this.state
+    ProfileEditorActions.patchProfile('1KowuWwlVsp9qArb', convertToRaw(editorState.getCurrentContent()))
   }
 
   render () {
@@ -57,6 +60,7 @@ export default class ProfileEditor extends React.Component {
         <button onClick={this.toggleI}>I</button>
         <button onClick={this.toggleUL}>UL</button>
         <button onClick={this.toggleOL}>OL</button>
+        <button onClick={this.handleSaveProfileClick}>Save Profile</button>
         <div className='profileEditor'>
           <Editor
             editorState={editorState}

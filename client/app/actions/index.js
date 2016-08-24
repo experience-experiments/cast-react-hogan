@@ -3,12 +3,10 @@
  */
 import axios from 'axios'
 
-// const API_URL = ''
-// const API_VERSION = 'v1'
+const API_BASEURL = 'api'
+const API_VERSION = 'v1'
 
-// axios.defaults.baseURL = `${global.__AXIOS_BASE_URL__}/${API_VERSION}`
-
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = `${API_BASEURL}/${API_VERSION}`
 
 // Exposing `axios` to all the actions
 export request from 'axios'

@@ -15,13 +15,13 @@ export const PATCH_PROFILE = 'PATCH_PROFILE'
 export function getProfile (id) {
   return {
     type: GET_PROFILE,
-    promise: () => request.get(`/users/${id}`)
+    promise: request.get(`/profiles/${id}`)
   }
 }
 
 export function patchProfile (id, values) {
   return {
     type: PATCH_PROFILE,
-    promise: () => request.patch(`/users/${id}`, values)
+    promise: request.patch(`/profiles/${id}`, values)
   }
 }
