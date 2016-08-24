@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux'
-import profile from './profile-editor'
+import profileEditor from './profile-editor'
+import profiles from './profiles'
+import profile from './profile'
 
 const reducers = combineReducers({
+  profileEditor,
+  profiles,
   profile
 })
 

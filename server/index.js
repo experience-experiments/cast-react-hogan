@@ -45,6 +45,24 @@ app.get('/react', function (req, res) {
     .catch((e) => res.send(e))
 })
 
+app.get('/react/profiles', function (req, res) {
+  renderer.render(store, Routes, req.url)
+    .then((o) => {
+      if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
+      res.render('react/index', { app: o.rendered })
+    })
+    .catch((e) => res.send(e))
+})
+
+app.get('/react/profiles/:profile', function (req, res) {
+  renderer.render(store, Routes, req.url)
+    .then((o) => {
+      if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
+      res.render('react/index', { app: o.rendered })
+    })
+    .catch((e) => res.send(e))
+})
+
 app.get('/hogan', function (req, res) {
   res.render('hogan/index', { partials: { navigation: 'hogan/partials/navigation' } })
 })
