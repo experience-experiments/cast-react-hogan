@@ -1,5 +1,5 @@
 /**
- * User actions
+ * Profile actions
  */
 import { request } from '../../actions'
 

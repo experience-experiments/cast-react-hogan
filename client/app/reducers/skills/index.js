@@ -1,14 +1,14 @@
-import { GET_PROFILE } from '../../actions/profile'
+import { GET_SKILLS } from '../../actions/skills'
 
 /**
- * Profile Reducer
+ * Skill Reducer
  *
  * @param {Object} state  Initial state
  * @param {Object} action
  */
-export default function profileReducer (state = {}, action) {
+export default function skillsReducer (state = [], action) {
   switch (action.type) {
-    case GET_PROFILE:
+    case GET_SKILLS:
       return action.r.data
     default:
       return state

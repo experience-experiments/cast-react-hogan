@@ -1,4 +1,4 @@
-import { GET_PROFILE } from '../../actions/profile'
+import { GET_PRACTICE } from '../../actions/practice'
 
 /**
  * Profile Reducer
@@ -6,9 +6,9 @@ import { GET_PROFILE } from '../../actions/profile'
  * @param {Object} state  Initial state
  * @param {Object} action
  */
-export default function profileReducer (state = {}, action) {
+export default function practiceReducer (state = {}, action) {
   switch (action.type) {
-    case GET_PROFILE:
+    case GET_PRACTICE:
       return action.r.data
     default:
       return state

@@ -45,6 +45,30 @@ app.get('/react', function (req, res) {
     .catch((e) => res.send(e))
 })
 
+/*
+ *  Practices
+ */
+app.get('/react/practices', function (req, res) {
+  renderer.render(store, Routes, req.url)
+    .then((o) => {
+      if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
+      res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
+    })
+    .catch((e) => res.send(e))
+})
+
+app.get('/react/practices/:practice', function (req, res) {
+  renderer.render(store, Routes, req.url)
+    .then((o) => {
+      if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
+      res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
+    })
+    .catch((e) => res.send(e))
+})
+
+/*
+ *  Profiles
+ */
 app.get('/react/profiles', function (req, res) {
   renderer.render(store, Routes, req.url)
     .then((o) => {
@@ -62,6 +86,49 @@ app.get('/react/profiles/:profile', function (req, res) {
     })
     .catch((e) => res.send(e))
 })
+
+/*
+ *  Skills
+ */
+app.get('/react/skills', function (req, res) {
+  renderer.render(store, Routes, req.url)
+    .then((o) => {
+      if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
+      res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
+    })
+    .catch((e) => res.send(e))
+})
+
+app.get('/react/skills/:skill', function (req, res) {
+  renderer.render(store, Routes, req.url)
+    .then((o) => {
+      if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
+      res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
+    })
+    .catch((e) => res.send(e))
+})
+
+/*
+ *  Users
+ */
+app.get('/react/users', function (req, res) {
+  renderer.render(store, Routes, req.url)
+    .then((o) => {
+      if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
+      res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
+    })
+    .catch((e) => res.send(e))
+})
+
+app.get('/react/users/:user', function (req, res) {
+  renderer.render(store, Routes, req.url)
+    .then((o) => {
+      if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
+      res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
+    })
+    .catch((e) => res.send(e))
+})
+
 
 app.get('/hogan', function (req, res) {
   res.render('hogan/index', { partials: { navigation: 'hogan/partials/navigation' } })

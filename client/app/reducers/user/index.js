@@ -1,14 +1,14 @@
-import { GET_PROFILE } from '../../actions/profile'
+import { GET_USER } from '../../actions/user'
 
 /**
- * Profile Reducer
+ * User Reducer
  *
  * @param {Object} state  Initial state
  * @param {Object} action
  */
-export default function profileReducer (state = {}, action) {
+export default function userReducer (state = {}, action) {
   switch (action.type) {
-    case GET_PROFILE:
+    case GET_USER:
       return action.r.data
     default:
       return state
