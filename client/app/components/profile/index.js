@@ -5,15 +5,13 @@ import * as ProfileActions from '../../../app/actions/profile'
 
 class Profile extends React.Component {
   componentWillMount () {
-    const { profile, dispatch, id } = this.props
+    const { dispatch, id } = this.props
 
-    if (!profile) dispatch(ProfileActions.getProfile(id))
+    dispatch(ProfileActions.getProfile(id))
   }
 
   render () {
     const { profile } = this.props
-
-    console.log(profile)
 
     return (
       <div className='container' />

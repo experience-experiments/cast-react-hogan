@@ -20,10 +20,10 @@ class Profiles extends React.Component {
         <dt>profiles</dt>
         <dd>
           <ul>
-            {profiles.map((profile, i) => {
+            {profiles.map((profile) => {
               const { _id: id, name } = profile
               return (
-                <li key={i}><Link to={`/react/profiles/${id}`}>{name}</Link></li>
+                <li key={id}><Link to={`/react/profiles/${id}`}>{name}</Link></li>
               )
             })}
           </ul>

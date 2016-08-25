@@ -20,10 +20,10 @@ class Users extends React.Component {
         <dt>users</dt>
         <dd>
           <ul>
-            {users.map((user, i) => {
-              const { _id: id, name } = user
+            {users.map((user) => {
+              const { _id: id, email } = user
               return (
-                <li key={i}><Link to={`/react/users/${id}`}>{name}</Link></li>
+                <li key={id}><Link to={`/react/users/${id}`}>{email}</Link></li>
               )
             })}
           </ul>

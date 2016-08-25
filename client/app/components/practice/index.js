@@ -8,7 +8,7 @@ class Practice extends React.Component {
   componentWillMount () {
     const { practice, dispatch, id } = this.props
 
-    if (!practice) dispatch(PracticeActions.getPractice(id))
+    dispatch(PracticeActions.getPractice(id))
   }
 
   render () {

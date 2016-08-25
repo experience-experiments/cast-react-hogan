@@ -6,18 +6,36 @@ import * as UserActions from '../../../app/actions/user'
 
 class User extends React.Component {
   componentWillMount () {
-    const { user, dispatch, id } = this.props
+    const { dispatch, id } = this.props
 
-    if (!user) dispatch(UserActions.getUser(id))
+    dispatch(UserActions.getUser(id))
   }
 
   render () {
     const { user } = this.props
 
-    console.log(user)
-
+    if (!user) return (<p>None.</p>)
     return (
-      <div className='container' />
+      <dl>
+        <dt>email</dt>
+        <dd>{user.email}</dd>
+        { /* (() => {
+          if (user.authorities.length) {
+            return (
+              <dt>authorities</dt>
+              <dd>
+                <ul>
+                  {user.authorities.map((authority) => (
+                    <li>{authority}</li>
+                  ))}
+                </ul>
+              </dd>
+            )
+          }
+        })() */ }
+        <dt>enabled</dt>
+        <dd>{user.enabled}</dd>
+      </dl>
     )
   }
 }
