@@ -1,12 +1,12 @@
 import React from 'react'
 
-import ProfileEditor from '../../components/profile-editor'
+import Navigation from '../../components/navigation'
 
 export default () => (
   <section>
     <header>
-      <h1>RMA PDF Service</h1>
+      <h1>Index</h1>
     </header>
-    <ProfileEditor />
+    <Navigation />
   </section>
 )

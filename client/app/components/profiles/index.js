@@ -14,7 +14,7 @@ class Profiles extends React.Component {
   render () {
     const { profiles } = this.props
 
-    if (!profiles.length) return <div />
+    if (!profiles.length) return (<p>No results.</p>)
     return (
       <dl>
         <dt>profiles</dt>
