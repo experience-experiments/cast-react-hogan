@@ -3,12 +3,12 @@ import React from 'react'
 import Skill from '../../components/skill'
 import Navigation from '../../components/navigation'
 
-export default () => (
+export default (props) => (
   <section>
     <header>
       <h1>Skill</h1>
     </header>
-    <Skill />
+    <Skill id={props.params.skill} />
     <Navigation />
   </section>
 )

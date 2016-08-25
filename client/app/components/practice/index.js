@@ -1,14 +1,31 @@
 import React from 'react'
+import { Link } from 'react-router'
+import { connect } from 'react-redux'
 
-import Practice from '../../components/practice'
-import Navigation from '../../components/navigation'
+import * as PracticeActions from '../../../app/actions/practice'
 
-export default () => (
-  <section>
-    <header>
-      <h1>Practice</h1>
-    </header>
-    <Practice />
-    <Navigation />
-  </section>
-)
+class Practice extends React.Component {
+  componentWillMount () {
+    const { practice, dispatch, id } = this.props
+
+    if (!practice) dispatch(PracticeActions.getPractice(id))
+  }
+
+  render () {
+    const { practice } = this.props
+
+    return (
+      <div className='container' />
+    )
+  }
+}
+
+Practice.needs = [
+  (id) => PracticeActions.getPractice(id)
+]
+
+export default connect(
+  (state) => ({
+    practice: state.practice
+  })
+)(Practice)
