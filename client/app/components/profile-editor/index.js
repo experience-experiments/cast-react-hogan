@@ -14,7 +14,7 @@ import * as ProfileEditorActions from '../../../app/actions/profile-editor'
 // import { stateToHTML } from 'draft-js-export-html'
 // import { stateToMarkdown } from 'draft-js-export-markdown'
 
-export default class ProfileEditor extends React.Component {
+class ProfileEditor extends React.Component {
   state = {
     editorState: EditorState.createEmpty()
   }

@@ -10,7 +10,7 @@ export default function profileReducer (state = {}, action) {
   switch (action.type) {
     case GET_PROFILE:
       return {
-        ...action.res.data.data
+        ...action.r.data
       }
     default:
       return state

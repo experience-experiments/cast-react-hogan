@@ -19,14 +19,13 @@ export default function promiseMiddleware () {
     next({ ...rest, type: REQUEST })
 
     return promise()
-      .then((res) => {
-        next({ ...rest, res, type: SUCCESS })
+      .then((r) => {
+        next({ ...rest, r, type: SUCCESS })
 
         return true
       })
-      .catch((error) => {
-        next({ ...rest, error, type: FAILURE })
-        console.log(error)
+      .catch((e) => {
+        next({ ...rest, e, type: FAILURE })
 
         return false
       })

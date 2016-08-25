@@ -40,7 +40,7 @@ app.get('/react', function (req, res) {
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
-      res.render('react/index', { app: o.rendered })
+      res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
     .catch((e) => res.send(e))
 })
@@ -49,7 +49,7 @@ app.get('/react/profiles', function (req, res) {
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
-      res.render('react/index', { app: o.rendered })
+      res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
     .catch((e) => res.send(e))
 })
@@ -58,7 +58,7 @@ app.get('/react/profiles/:profile', function (req, res) {
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
-      res.render('react/index', { app: o.rendered })
+      res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
     .catch((e) => res.send(e))
 })

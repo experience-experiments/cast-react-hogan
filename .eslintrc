@@ -1,7 +1,7 @@
 {
   "extends": [
-  	"standard",
-  	"plugin:react/recommended"
+    "standard",
+    "plugin:react/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
@@ -14,6 +14,6 @@
     "react"
   ],
   "rules": {
-  	"react/display-name": 0
+    "react/display-name": 0
   }
 }

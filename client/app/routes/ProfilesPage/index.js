@@ -5,7 +5,7 @@ import Profiles from '../../components/profiles'
 export default () => (
   <section>
     <header>
-      <h1>RMA PDF Service</h1>
+      <h1>Profiles</h1>
     </header>
     <Profiles />
   </section>

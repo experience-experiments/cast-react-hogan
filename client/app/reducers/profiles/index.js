@@ -1,4 +1,4 @@
-import { GET_PROFILES } from '../../actions/profile-editor'
+import { GET_PROFILES } from '../../actions/profiles'
 
 /**
  * Profile Reducer
@@ -6,13 +6,10 @@ import { GET_PROFILES } from '../../actions/profile-editor'
  * @param {Object} state  Initial state
  * @param {Object} action
  */
-export default function profilesReducer (state = {}, action) {
-  console.log(action.type)
+export default function profilesReducer (state = [], action) {
   switch (action.type) {
     case GET_PROFILES:
-      return {
-        ...action.res.data.data
-      }
+      return action.r.data
     default:
       return state
   }

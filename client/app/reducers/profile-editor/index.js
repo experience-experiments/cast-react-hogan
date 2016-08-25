@@ -10,11 +10,11 @@ export default function profileEditorReducer (state = {}, action) {
   switch (action.type) {
     case GET_PROFILE_EDITOR:
       return {
-        ...action.res.data.data
+        ...action.r.data
       }
     case PATCH_PROFILE_EDITOR: // beep beep
       return {
-        ...action.res.data.data
+        ...action.r.data
       }
     default:
       return state
