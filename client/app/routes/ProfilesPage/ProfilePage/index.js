@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Profile from '../../components/profile'
-import Navigation from '../../components/navigation'
+import Profile from '../../../components/profiles/profile'
+import Navigation from '../../../components/navigation'
 
 export default (props) => (
   <section>

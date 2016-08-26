@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Skill from '../../components/skill'
-import Navigation from '../../components/navigation'
+import Skill from '../../../components/skills/skill'
+import Navigation from '../../../components/navigation'
 
 export default (props) => (
   <section>

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Practice from '../../components/practice'
-import Navigation from '../../components/navigation'
+import Practice from '../../../components/practices/practice'
+import Navigation from '../../../components/navigation'
 
 export default (props) => (
   <section>

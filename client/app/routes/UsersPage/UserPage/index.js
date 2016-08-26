@@ -1,7 +1,7 @@
 import React from 'react'
 
-import User from '../../components/user'
-import Navigation from '../../components/navigation'
+import User from '../../../components/users/user'
+import Navigation from '../../../components/navigation'
 
 export default (props) => (
   <section>
