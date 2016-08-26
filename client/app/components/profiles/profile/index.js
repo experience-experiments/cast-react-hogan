@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import * as ProfileActions from '../../../app/actions/profile'
+import * as ProfileActions from '../../../../app/actions/profiles/profile'
 
 class Profile extends React.Component {
   hasProfile = () => {

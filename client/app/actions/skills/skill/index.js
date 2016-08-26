@@ -1,7 +1,7 @@
 /**
  * Skill actions
  */
-import { request } from '../../actions'
+import { request } from '../../../actions'
 
 /**
  * Action Types

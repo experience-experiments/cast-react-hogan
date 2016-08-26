@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-import * as PracticeActions from '../../../app/actions/practice'
+import * as PracticeActions from '../../../../app/actions/practices/practice'
 
 class Practice extends React.Component {
   hasPractice = () => {

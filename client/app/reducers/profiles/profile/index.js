@@ -1,4 +1,4 @@
-import { GET_PROFILE } from '../../actions/profile'
+import { GET_PROFILE } from '../../../actions/profiles/profile'
 
 /**
  * Profile Reducer

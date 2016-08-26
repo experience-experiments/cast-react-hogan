@@ -1,4 +1,4 @@
-import { GET_PRACTICE } from '../../actions/practice'
+import { GET_PRACTICE } from '../../../actions/practices/practice'
 
 /**
  * Profile Reducer

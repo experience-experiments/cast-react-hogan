@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-import * as UserActions from '../../../app/actions/user'
+import * as UserActions from '../../../../app/actions/users/user'
 
 class User extends React.Component {
   hasUser = () => {

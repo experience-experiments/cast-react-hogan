@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-import * as SkillActions from '../../../app/actions/skill'
+import * as SkillActions from '../../../../app/actions/skills/skill'
 
 class Skill extends React.Component {
   hasSkill = () => {
