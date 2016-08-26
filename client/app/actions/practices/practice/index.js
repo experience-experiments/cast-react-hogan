@@ -14,6 +14,6 @@ export const GET_PRACTICE = 'GET_PRACTICE'
 export function getPractice (id) {
   return {
     type: GET_PRACTICE,
-    promise: () => request.get(`/practices/${id}`)
+    promise: () => request.get(`/practices/${id}/view-model`)
   }
 }

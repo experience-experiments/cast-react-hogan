@@ -14,6 +14,6 @@ export const GET_PROFILES = 'GET_PROFILES'
 export function getProfiles () {
   return {
     type: GET_PROFILES,
-    promise: () => request.get(`/profiles`)
+    promise: () => request.get(`/profiles/view-model`)
   }
 }

@@ -14,6 +14,6 @@ export const GET_USER = 'GET_USER'
 export function getUser (id) {
   return {
     type: GET_USER,
-    promise: () => request.get(`/users/${id}`)
+    promise: () => request.get(`/users/${id}/view-model`)
   }
 }
