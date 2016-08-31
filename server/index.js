@@ -1,6 +1,8 @@
 const express = require('express')
 const path = require('path')
 
+var bodyParser = require('body-parser');
+
 const serverPath = path.resolve(process.cwd(), 'server')
 const clientPath = path.resolve(process.cwd(), 'client')
 const publicPath = path.resolve(process.cwd(), 'public')
@@ -28,6 +30,8 @@ const api = require(apiPath)
 app.set('views', path.join(serverPath, 'app/mvc/views'))
 app.set('view engine', 'html')
 app.engine('html', require(path.join(serverPath, 'lib/express-hogan-cache')).createEngine())
+
+app.use(bodyParser.json());
 
 app.use('/assets', express.static(path.join(publicPath, 'assets')))
 app.use('/api', api)

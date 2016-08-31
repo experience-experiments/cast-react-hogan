@@ -1,54 +1,43 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 import {
-  Editor,
   EditorState,
-  RichUtils,
-  // convertFromRaw,
+  ContentState,
+  convertFromRaw,
   convertToRaw
 } from 'draft-js'
 
-import * as ProfileEditorActions from '../../../app/actions/profile-editor'
+import {
+  Bold,
+  Italic,
+  Code,
+  Underline,
+  BlockQuote,
+  CodeBlock,
+  HeaderOne,
+  HeaderTwo,
+  HeaderThree,
+  HeaderFour,
+  HeaderFive,
+  HeaderSix,
+  OrderedList,
+  UnorderedList,
+  DraftEditor
+} from 'react-draft-editor'
 
 // import { stateToHTML } from 'draft-js-export-html'
 // import { stateToMarkdown } from 'draft-js-export-markdown'
 
-class ProfileEditor extends React.Component {
+export class ProfileEditor extends React.Component {
   state = {
-    editorState: EditorState.createEmpty()
+    editorState: EditorState.createWithContent(ContentState.createFromText(this.props.profile.summary || ''))
   }
 
   onChange = (editorState) => this.setState({ editorState })
 
-  focus = () => this.refs.profileEditor.focus()
-
-  handleKeyCommand = (keyCommand) => {
-    const { editorState } = this.state
-    const keyCommandState = RichUtils.handleKeyCommand(editorState, keyCommand)
-    if (keyCommandState) this.setState({ editorState: keyCommandState })
-  }
-
-  toggleInlineStyle (inlineStyle) { // console.log('toggleInlineStyle()', inlineStyle)
-    const { editorState } = this.state
-    const toggleState = RichUtils.toggleInlineStyle(editorState, inlineStyle)
-    if (toggleState) this.setState({ editorState: toggleState })
-  }
-
-  toggleBlockType (blockType) { // console.log('toggleBlockType()', blockType)
-    const { editorState } = this.state
-    const toggleState = RichUtils.toggleBlockType(editorState, blockType)
-    if (toggleState) this.setState({ editorState: toggleState })
-  }
-
-  toggleB = () => this.toggleInlineStyle('BOLD')
-  toggleI = () => this.toggleInlineStyle('ITALIC')
-  toggleUL = () => this.toggleBlockType('unordered-list-item')
-  toggleOL = () => this.toggleBlockType('ordered-list-item')
-
   handleSaveProfileClick = () => {
-    const { editorState } = this.state
-    ProfileEditorActions.patchProfile('1KowuWwlVsp9qArb', convertToRaw(editorState.getCurrentContent()))
+    const { onSaveProfile } = this.props
+    onSaveProfile({})
   }
 
   render () {
@@ -56,27 +45,86 @@ class ProfileEditor extends React.Component {
 
     return (
       <div className='container'>
-        <button onClick={this.toggleB}>B</button>
-        <button onClick={this.toggleI}>I</button>
-        <button onClick={this.toggleUL}>UL</button>
-        <button onClick={this.toggleOL}>OL</button>
-        <button onClick={this.handleSaveProfileClick}>Save Profile</button>
-        <div className='profileEditor'>
-          <Editor
-            editorState={editorState}
-            handleKeyCommand={this.handleKeyCommand}
-            onChange={this.onChange}
-            spellCheck={true}
-            ref='profileEditor'
-          />
-        </div>
+
+        <Bold
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <Italic
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <Code
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <Underline
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+
+        <BlockQuote
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <CodeBlock
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <HeaderOne
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <HeaderTwo
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <HeaderThree
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <HeaderFour
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <HeaderFive
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <HeaderSix
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <OrderedList
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+        <UnorderedList
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+
+        <button
+          onMouseDown={this.handleSaveProfileClick}>
+            Save Profile
+        </button>
+
+        <DraftEditor
+          onChange={this.onChange}
+          editorState={editorState}
+        />
+
       </div>
     )
   }
 }
 
-export default connect(
-  (state) => ({
-    profile: state.profile
-  })
-)(ProfileEditor)
+ProfileEditor.propTypes = {
+  onSaveProfile: React.PropTypes.func.isRequired,
+  profile: React.PropTypes.object.isRequired
+}
+
+ProfileEditor.defaultProps = {
+  onSaveProfile: () => false,
+  profile: {}
+}

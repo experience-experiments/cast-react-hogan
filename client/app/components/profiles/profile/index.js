@@ -3,9 +3,12 @@ import { connect } from 'react-redux'
 
 import * as ProfileActions from '../../../../app/actions/profiles/profile'
 
+import { ProfileEditor } from '../../profile-editor'
+
 class Profile extends React.Component {
   hasProfile = () => {
     const { profile, id } = this.props
+
     return (profile._id === id)
   }
 
@@ -17,9 +20,22 @@ class Profile extends React.Component {
     }
   }
 
+  handleSaveProfile = () => { // profile) {
+    if (this.hasProfile()) {
+      const { dispatch, id, profile } = this.props
+
+      dispatch(ProfileActions.patchProfile(id, profile))
+    }
+  }
+
   render () {
     if (!this.hasProfile()) return (<p>No results.</p>)
 
+    const { profile } = this.props
+
+    return (<ProfileEditor profile={profile} onSaveProfile={this.handleSaveProfile} />)
+
+    /*
     const { profile } = this.props
     const {
       emailAddress,
@@ -69,6 +85,7 @@ class Profile extends React.Component {
         })()}
       </dl>
     )
+    */
   }
 }
 

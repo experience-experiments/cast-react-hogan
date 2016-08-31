@@ -10,6 +10,15 @@ const express = require('express')
 
 const router = express.Router()
 
+function getMeta() {
+  return {
+    dateTime: new Date().valueOf(),
+    user: {
+      fullName: 'PDF Service'
+    }
+  }
+}
+
 router.get('/v1/users', (req, res) => {
   usersController.getAllUsers()
     .then((users) => res.json(users))
@@ -77,7 +86,9 @@ router.get('/v1/profiles/view-model', (req, res) => {
 
 router.patch('/v1/profiles/:profile', (req, res) => {
   const profileId = req.params.profile
-  profilesController.getProfile(profileId)
+  const profile = req.body
+
+  profilesController.setProfile(profileId, profile, getMeta())
     .then((profile) => res.json(profile))
     .catch((e) => res.send(e))
 })

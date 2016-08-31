@@ -1,4 +1,4 @@
-import { GET_PROFILE } from '../../../actions/profiles/profile'
+import { GET_PROFILE, PATCH_PROFILE } from '../../../actions/profiles/profile'
 
 /**
  * Profile Reducer
@@ -9,6 +9,7 @@ import { GET_PROFILE } from '../../../actions/profiles/profile'
 export default function profileReducer (state = {}, action) {
   switch (action.type) {
     case GET_PROFILE:
+    case PATCH_PROFILE:
       return action.r.data
     default:
       return state
