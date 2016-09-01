@@ -1,7 +1,10 @@
 
-const EditorState = require('draft-js').EditorState
-const ContentState = require('draft-js').ContentState
-const convertToRaw = require('draft-js').convertToRaw
+const {
+  EditorState,
+  ContentState,
+  convertToRaw
+} = require('draft-js')
+
 const editorState = EditorState.createEmpty()
 
 const Database = require('nedb');
