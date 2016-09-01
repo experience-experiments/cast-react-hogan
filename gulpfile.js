@@ -40,7 +40,7 @@ gulp
       .watch(path.resolve(serverPath, 'app/mvc/views/**/*.*'), server.restart)
   })
   .task('server', function () {
-    server.listen({ path: 'app' })
+    server.listen({ path: 'app', args: ['--api', '5001', '--react', '5002', '--hogan', '5003'] })
   })
   .task('watch-server', function () {
     gulp

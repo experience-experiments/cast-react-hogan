@@ -23,7 +23,7 @@ class Practices extends React.Component {
             {practices.map((practice) => {
               const { _id: id, name } = practice
               return (
-                <li key={id}><Link to={`/react/practices/${id}`}>{name}</Link></li>
+                <li key={id}><Link to={`/practices/${id}`}>{name}</Link></li>
               )
             })}
           </ul>

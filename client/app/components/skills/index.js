@@ -23,7 +23,7 @@ class Skills extends React.Component {
             {skills.map((skill) => {
               const { _id: id, name } = skill
               return (
-                <li key={id}><Link to={`/react/skills/${id}`}>{name}</Link></li>
+                <li key={id}><Link to={`/skills/${id}`}>{name}</Link></li>
               )
             })}
           </ul>

@@ -23,7 +23,7 @@ class Users extends React.Component {
             {users.map((user) => {
               const { _id: id, email } = user
               return (
-                <li key={id}><Link to={`/react/users/${id}`}>{email}</Link></li>
+                <li key={id}><Link to={`/users/${id}`}>{email}</Link></li>
               )
             })}
           </ul>

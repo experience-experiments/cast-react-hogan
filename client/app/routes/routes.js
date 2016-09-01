@@ -16,7 +16,7 @@ import UsersPage from './UsersPage'
 import UserPage from './UsersPage/UserPage'
 
 export default (
-  <Route path='/react'>
+  <Route path='/'>
     <IndexRoute component={IndexPage} />
     <Route path='practices'>
       <IndexRoute component={PracticesPage} />

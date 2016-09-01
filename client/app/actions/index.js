@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const API_PROTOCOL = 'http'
 const API_HOST = 'localhost'
-const API_PORT = '3001'
+const API_PORT = '5001'
 const API_BASEURL = 'api'
 const API_VERSION = 'v1'
 
