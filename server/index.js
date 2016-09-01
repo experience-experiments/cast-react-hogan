@@ -22,8 +22,6 @@ const Routes = require(path.resolve(clientPath, 'app/routes')).Routes
 
 const configureStore = require(path.resolve(clientPath, 'app/store')).configureStore
 
-const store = configureStore()
-
 const app = express()
 const api = require(apiPath)
 
@@ -41,98 +39,124 @@ app.get('/', function (req, res) {
 })
 
 app.get('/react', function (req, res) {
+  const store = configureStore()
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 /*
  *  Practices
  */
 app.get('/react/practices', function (req, res) {
+  const store = configureStore()
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/react/practices/:practice', function (req, res) {
+  const store = configureStore()
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 /*
  *  Profiles
  */
 app.get('/react/profiles', function (req, res) {
+  const store = configureStore()
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/react/profiles/:profile', function (req, res) {
+  const store = configureStore()
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 /*
  *  Skills
  */
 app.get('/react/skills', function (req, res) {
+  const store = configureStore()
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/react/skills/:skill', function (req, res) {
+  const store = configureStore()
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 /*
  *  Users
  */
 app.get('/react/users', function (req, res) {
+  const store = configureStore()
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/react/users/:user', function (req, res) {
+  const store = configureStore()
   renderer.render(store, Routes, req.url)
     .then((o) => {
       if (o.redirect) return res.redirect(o.redirect.pathname + o.redirect.search)
       res.render('react/index', { app: o.rendered, state: JSON.stringify(o.state) })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
-
 
 app.get('/hogan', function (req, res) {
   res.render('hogan/index', { partials: { navigation: 'hogan/partials/navigation' } })
@@ -146,7 +170,9 @@ app.get('/hogan/practices', function (req, res) {
     .then((practices) => {
       res.render('hogan/practices/index', { practices, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/practices/view-model', function (req, res) {
@@ -154,7 +180,9 @@ app.get('/hogan/practices/view-model', function (req, res) {
     .then((practices) => {
       res.render('hogan/practices/index', { practices, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/practices/:practice', function (req, res) {
@@ -163,7 +191,9 @@ app.get('/hogan/practices/:practice', function (req, res) {
     .then((practice) => {
       res.render('hogan/practices/practice', { practice, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/practices/:practice/view-model', function (req, res) {
@@ -172,7 +202,9 @@ app.get('/hogan/practices/:practice/view-model', function (req, res) {
     .then((practice) => {
       res.render('hogan/practices/practice', { practice, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 /*
@@ -183,7 +215,9 @@ app.get('/hogan/profiles', function (req, res) {
     .then((profiles) => {
       res.render('hogan/profiles/index', { profiles, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/profiles/view-model', function (req, res) {
@@ -191,7 +225,9 @@ app.get('/hogan/profiles/view-model', function (req, res) {
     .then((profiles) => {
       res.render('hogan/profiles/index', { profiles, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/profiles/:profile', function (req, res) {
@@ -200,7 +236,9 @@ app.get('/hogan/profiles/:profile', function (req, res) {
     .then((profile) => {
       res.render('hogan/profiles/profile', { profile, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/profiles/:profile/view-model', function (req, res) {
@@ -209,7 +247,9 @@ app.get('/hogan/profiles/:profile/view-model', function (req, res) {
     .then((profile) => {
       res.render('hogan/profiles/profile', { profile, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 /*
@@ -220,7 +260,9 @@ app.get('/hogan/skills', function (req, res) {
     .then((skills) => {
       res.render('hogan/skills/index', { skills, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/skills/view-model', function (req, res) {
@@ -228,7 +270,9 @@ app.get('/hogan/skills/view-model', function (req, res) {
     .then((skills) => {
       res.render('hogan/skills/index', { skills, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/skills/:skill', function (req, res) {
@@ -237,7 +281,9 @@ app.get('/hogan/skills/:skill', function (req, res) {
     .then((skill) => {
       res.render('hogan/skills/skill', { skill, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/skills/:skill/view-model', function (req, res) {
@@ -246,7 +292,9 @@ app.get('/hogan/skills/:skill/view-model', function (req, res) {
     .then((skill) => {
       res.render('hogan/skills/skill', { skill, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 /*
@@ -257,7 +305,9 @@ app.get('/hogan/users', function (req, res) {
     .then((users) => {
       res.render('hogan/users/index', { users, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/users/view-model', function (req, res) {
@@ -265,7 +315,9 @@ app.get('/hogan/users/view-model', function (req, res) {
     .then((users) => {
       res.render('hogan/users/index', { users, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/users/:user', function (req, res) {
@@ -274,7 +326,9 @@ app.get('/hogan/users/:user', function (req, res) {
     .then((user) => {
       res.render('hogan/users/user', { user, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 app.get('/hogan/users/:user/view-model', function (req, res) {
@@ -283,7 +337,9 @@ app.get('/hogan/users/:user/view-model', function (req, res) {
     .then((user) => {
       res.render('hogan/users/user', { user, partials: { navigation: 'hogan/partials/navigation' } })
     })
-    .catch((e) => res.send(e))
+    .catch((e) => {
+      res.send(e)
+    })
 })
 
 module.exports = app

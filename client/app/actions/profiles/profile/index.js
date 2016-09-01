@@ -19,7 +19,7 @@ export function getProfile (id) {
   }
 }
 
-export function patchProfile (id, profile) { console.log(id, profile)
+export function patchProfile (id, profile) {
   return {
     type: PATCH_PROFILE,
     promise: () => request.patch(`/profiles/${id}`, profile)

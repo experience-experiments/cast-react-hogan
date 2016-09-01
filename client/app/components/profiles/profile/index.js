@@ -1,39 +1,22 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-import * as ProfileActions from '../../../../app/actions/profiles/profile'
+import { SummaryEditor } from '../../summary-editor'
 
-import { ProfileEditor } from '../../profile-editor'
+export default class Profile extends React.Component {
+  handleSaveSummary = (summary) => {
+    const { onProfileChange, profile } = this.props
 
-class Profile extends React.Component {
-  hasProfile = () => {
-    const { profile, id } = this.props
-
-    return (profile._id === id)
-  }
-
-  componentWillMount () {
-    if (!this.hasProfile()) {
-      const { dispatch, id } = this.props
-
-      dispatch(ProfileActions.getProfile(id))
-    }
-  }
-
-  handleSaveProfile = () => { // profile) {
-    if (this.hasProfile()) {
-      const { dispatch, id, profile } = this.props
-
-      dispatch(ProfileActions.patchProfile(id, profile))
-    }
+    onProfileChange({ ...profile, summary })
   }
 
   render () {
-    if (!this.hasProfile()) return (<p>No results.</p>)
-
     const { profile } = this.props
 
-    return (<ProfileEditor profile={profile} onSaveProfile={this.handleSaveProfile} />)
+    const { summary } = profile
+
+    return (
+      <SummaryEditor summary={summary} onSaveSummary={this.handleSaveSummary} />
+    )
 
     /*
     const { profile } = this.props
@@ -89,12 +72,12 @@ class Profile extends React.Component {
   }
 }
 
-Profile.needs = [
-  ({ id }) => ProfileActions.getProfile(id)
-]
+Profile.propTypes = {
+  onProfileChange: React.PropTypes.func.isRequired,
+  profile: React.PropTypes.object.isRequired
+}
 
-export default connect(
-  (state) => ({
-    profile: state.profile
-  })
-)(Profile)
+Profile.defaultProps = {
+  onProfileChange: () => false,
+  profile: {}
+}

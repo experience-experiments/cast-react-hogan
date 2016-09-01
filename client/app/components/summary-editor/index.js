@@ -2,7 +2,6 @@ import React from 'react'
 
 import {
   EditorState,
-  ContentState,
   convertFromRaw,
   convertToRaw
 } from 'draft-js'
@@ -28,16 +27,20 @@ import {
 // import { stateToHTML } from 'draft-js-export-html'
 // import { stateToMarkdown } from 'draft-js-export-markdown'
 
-export class ProfileEditor extends React.Component {
-  state = {
-    editorState: EditorState.createWithContent(ContentState.createFromText(this.props.profile.summary || ''))
-  }
+export class SummaryEditor extends React.Component {
+  state = (() => {
+      const { onSaveSummary, summary } = this.props
+      return {
+        onSaveSummary: onSaveSummary,
+        editorState: EditorState.createWithContent(convertFromRaw(summary))
+      }
+  })()
 
   onChange = (editorState) => this.setState({ editorState })
 
-  handleSaveProfileClick = () => {
-    const { onSaveProfile } = this.props
-    onSaveProfile({})
+  handleSaveSummaryClick = () => {
+    const { onSaveSummary, editorState } = this.state
+    onSaveSummary(convertToRaw(editorState.getCurrentContent()))
   }
 
   render () {
@@ -45,7 +48,6 @@ export class ProfileEditor extends React.Component {
 
     return (
       <div className='container'>
-
         <Bold
           onChange={this.onChange}
           editorState={editorState}
@@ -105,26 +107,25 @@ export class ProfileEditor extends React.Component {
         />
 
         <button
-          onMouseDown={this.handleSaveProfileClick}>
-            Save Profile
+          onMouseDown={this.handleSaveSummaryClick}>
+            Save Summary
         </button>
 
         <DraftEditor
           onChange={this.onChange}
           editorState={editorState}
         />
-
       </div>
     )
   }
 }
 
-ProfileEditor.propTypes = {
-  onSaveProfile: React.PropTypes.func.isRequired,
-  profile: React.PropTypes.object.isRequired
+SummaryEditor.propTypes = {
+  onSaveSummary: React.PropTypes.func.isRequired,
+  summary: React.PropTypes.object.isRequired
 }
 
-ProfileEditor.defaultProps = {
-  onSaveProfile: () => false,
-  profile: {}
+SummaryEditor.defaultProps = {
+  onSaveSummary: () => false,
+  summary: {}
 }

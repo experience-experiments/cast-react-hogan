@@ -57,7 +57,6 @@ router.get('/v1/practices/view-model', (req, res) => {
     .catch((e) => res.send(e))
 })
 
-
 router.get('/v1/practices/:practice', (req, res) => {
   const practiceId = req.params.practice
   practicesController.getPractice(practiceId)
