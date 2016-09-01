@@ -8,12 +8,12 @@ const serverPath = path.resolve(processCwd, 'server')
 const clientPath = path.resolve(processCwd, 'client')
 const publicPath = path.resolve(processCwd, 'public')
 
-const appPath = path.join(serverPath, 'app/mvc')
+const mvcPath = path.join(serverPath, 'app/mvc')
 
-const practicesController = require(path.join(appPath, 'controllers/practices'))
-const profilesController = require(path.join(appPath, 'controllers/profiles'))
-const usersController = require(path.join(appPath, 'controllers/users'))
-const skillsController = require(path.join(appPath, 'controllers/skills'))
+const practicesController = require(path.join(mvcPath, 'controllers/practices'))
+const profilesController = require(path.join(mvcPath, 'controllers/profiles'))
+const usersController = require(path.join(mvcPath, 'controllers/users'))
+const skillsController = require(path.join(mvcPath, 'controllers/skills'))
 
 const {
   Renderer

@@ -2,21 +2,24 @@ const path = require('path')
 const express = require('express')
 const http = require('http')
 
-const bodyParser = require('body-parser')
-
 const processCwd = process.cwd()
 const serverPath = path.resolve(processCwd, 'server')
 const publicPath = path.resolve(processCwd, 'public')
+
+const expressHoganCache = require(path.join(serverPath, 'lib/express-hogan-cache'))
+
+const layoutPath = path.join(serverPath, 'app/mvc/views')
+const assetsPath = path.join(publicPath, 'assets')
 
 const app = express()
 const server = http.createServer(app)
 const router = require('./router')
 
-app.set('views', path.join(serverPath, 'app/mvc/views'))
+app.set('views', layoutPath)
 app.set('view engine', 'html')
-app.engine('html', require(path.join(serverPath, 'lib/express-hogan-cache')).createEngine())
+app.engine('html', expressHoganCache.createEngine())
 
-app.use('/assets', express.static(path.join(publicPath, 'assets')))
+app.use('/assets', express.static(assetsPath))
 app.use('/', router)
 
 module.exports = {
