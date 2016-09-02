@@ -22,6 +22,9 @@ const assetsPath = path.resolve(publicPath, 'assets')
 const configPath = path.resolve(serverPath, 'src/config')
 const config = require(path.resolve(configPath, 'gulp'))
 
+const getFileData = (axios) => (`/* eslint-disable */
+global.AXIOS = ${JSON.stringify(axios)}`)
+
 const ensure = (p) => (
   new Promise((success, failure) => {
     fs.ensureDir(p, (e) => {
@@ -71,7 +74,7 @@ gulp
     const p = path.join(clientPath, 'src/config')
 
     const filePath = path.join(p, 'index.js')
-    const fileData = `global.AXIOS = ${JSON.stringify(global.AXIOS)}`
+    const fileData = getFileData(global.AXIOS)
 
     ensure(p)
       .then(() => writeFile(filePath, fileData))
