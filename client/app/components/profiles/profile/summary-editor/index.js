@@ -7,6 +7,9 @@ import {
 } from 'draft-js'
 
 import {
+  AsHtml,
+  AsMarkdown,
+  ToReact,
   Bold,
   Italic,
   Code,
@@ -23,9 +26,6 @@ import {
   UnorderedList,
   DraftEditor
 } from 'react-draft-editor'
-
-// import { stateToHTML } from 'draft-js-export-html'
-// import { stateToMarkdown } from 'draft-js-export-markdown'
 
 export class SummaryEditor extends React.Component {
   state = (() => {
@@ -45,9 +45,17 @@ export class SummaryEditor extends React.Component {
 
   render () {
     const { editorState } = this.state
-
     return (
       <div className='container'>
+        <AsHtml
+          editorState={editorState}
+        />
+        <AsMarkdown
+          editorState={editorState}
+        />
+        <ToReact
+          editorState={editorState}
+        />
         <Bold
           onChange={this.onChange}
           editorState={editorState}

@@ -91,6 +91,9 @@ commander
  */
 Promise.resolve()
   .then(() => {
+    /*
+     *  We always start the API server
+     */
     api.start()
   })
   .then(() => {
