@@ -6,10 +6,10 @@ const processCwd = process.cwd()
 const serverPath = path.resolve(processCwd, 'server')
 const publicPath = path.resolve(processCwd, 'public')
 
-const expressHoganCache = require(path.join(serverPath, 'lib/express-hogan-cache'))
-
 const layoutPath = path.join(serverPath, 'app/mvc/views')
 const assetsPath = path.join(publicPath, 'assets')
+
+const expressHoganCache = require('express-hogan-cache') // path.join(serverPath, 'lib/express-hogan-cache'))
 
 const app = express()
 const server = http.createServer(app)
@@ -25,7 +25,7 @@ app.use('/', router)
 module.exports = {
   start: function (port) {
     app.set('port', port)
-    server.listen(app.get('port'), '0.0.0.0')
+    server.listen(port, '0.0.0.0')
     server.on('error', (e) => console.log(e))
     server.on('listening', () => console.log(`[RMA PDF Service (React)] ${port}`))
   }

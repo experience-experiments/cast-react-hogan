@@ -14,6 +14,6 @@ export const GET_PRACTICES = 'GET_PRACTICES'
 export function getPractices () {
   return {
     type: GET_PRACTICES,
-    promise: () => request.get(`/practices/view-model`)
+    promise: () => request.get('/practices/view-model')
   }
 }

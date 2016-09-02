@@ -1,6 +1,0 @@
-[submodule "server/lib/express-hogan-cache"]
-	path = server/lib/express-hogan-cache
-	url = https://github.com/rma-consulting/express-hogan-cache
-[submodule "server/lib/hogan-cache"]
-	path = server/lib/hogan-cache
-	url = https://github.com/rma-consulting/hogan-cache

@@ -48,6 +48,18 @@ class UserPage extends React.Component {
   }
 }
 
+UserPage.propTypes = {
+  user: React.PropTypes.object.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
+  params: React.PropTypes.object.isRequired
+}
+
+UserPage.defaultProps = {
+  user: {},
+  dispatch: () => false,
+  params: {}
+}
+
 UserPage.needs = [
   ({ user }) => UserActions.getUser(user)
 ]

@@ -33,6 +33,16 @@ class Skills extends React.Component {
   }
 }
 
+Skills.propTypes = {
+  skills: React.PropTypes.array.isRequired,
+  dispatch: React.PropTypes.func.isRequired
+}
+
+Skills.defaultProps = {
+  skills: [],
+  dispatch: () => false
+}
+
 Skills.needs = [
   SkillsActions.getSkills
 ]

@@ -29,11 +29,11 @@ import {
 
 export class SummaryEditor extends React.Component {
   state = (() => {
-      const { onSaveSummary, summary } = this.props
-      return {
-        onSaveSummary: onSaveSummary,
-        editorState: EditorState.createWithContent(convertFromRaw(summary))
-      }
+    const { onSaveSummary, summary } = this.props
+    return {
+      onSaveSummary: onSaveSummary,
+      editorState: EditorState.createWithContent(convertFromRaw(summary))
+    }
   })()
 
   onChange = (editorState) => this.setState({ editorState })

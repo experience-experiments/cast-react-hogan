@@ -2,6 +2,8 @@ const Datastore = require('nedb')
 
 const skillsDB = new Datastore({ filename: process.cwd() + '/.db/skills.db', autoload: true })
 
+const OPTIONS = { returnUpdatedDocs: true }
+
 function skillViewModel (skill) {
   const { categories } = skill
   categories.sort((alpha, omega) => {
@@ -22,6 +24,16 @@ function getAllSkills () {
   })
 }
 
+function setAllSkills (skills) {
+  throw Error /*
+  return new Promise((resolve, reject) => {
+    skillsDB.update(skills, OPTIONS, (e, skills) => {
+      if (e) return reject(e)
+      resolve(skills)
+    })
+  }) */
+}
+
 function getAllSkillsViewModel () {
   return new Promise((resolve, reject) => {
     skillsDB.find({}).sort({ name: 1 }).exec((e, skills) => {
@@ -40,6 +52,15 @@ function getSkill (id) {
   })
 }
 
+function setSkill (id, skill) {
+  return new Promise((resolve, reject) => {
+    skillsDB.findOne({ _id: id }, skill, OPTIONS, (e, skill) => {
+      if (e) return reject(e)
+      resolve(skill)
+    })
+  })
+}
+
 function getSkillViewModel (id) {
   return new Promise((resolve, reject) => {
     skillsDB.findOne({ _id: id }, (e, skill) => { // does nedb sort on deep fields?
@@ -51,7 +72,9 @@ function getSkillViewModel (id) {
 
 module.exports = {
   getAllSkills,
+  setAllSkills,
   getAllSkillsViewModel,
   getSkill,
+  setSkill,
   getSkillViewModel
 }

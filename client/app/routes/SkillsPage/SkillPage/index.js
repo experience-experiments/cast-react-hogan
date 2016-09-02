@@ -48,6 +48,18 @@ class SkillPage extends React.Component {
   }
 }
 
+SkillPage.propTypes = {
+  skill: React.PropTypes.object.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
+  params: React.PropTypes.object.isRequired
+}
+
+SkillPage.defaultProps = {
+  skill: {},
+  dispatch: () => false,
+  params: {}
+}
+
 SkillPage.needs = [
   ({ skill }) => SkillActions.getSkill(skill)
 ]

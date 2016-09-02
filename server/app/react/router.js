@@ -4,16 +4,7 @@ const express = require('express')
 const router = express.Router()
 
 const processCwd = process.cwd()
-const serverPath = path.resolve(processCwd, 'server')
 const clientPath = path.resolve(processCwd, 'client')
-const publicPath = path.resolve(processCwd, 'public')
-
-const mvcPath = path.join(serverPath, 'app/mvc')
-
-const practicesController = require(path.join(mvcPath, 'controllers/practices'))
-const profilesController = require(path.join(mvcPath, 'controllers/profiles'))
-const usersController = require(path.join(mvcPath, 'controllers/users'))
-const skillsController = require(path.join(mvcPath, 'controllers/skills'))
 
 const {
   Renderer

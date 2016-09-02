@@ -5,8 +5,9 @@
   "description": "API to Cast DB with PDF Generator",
   "main": "./app.js",
   "scripts": {
-    "start": "node app --api 5001 --react 5002 --hogan 5003",
-    "dev": "gulp"
+    "start": "gulp start && node app --react 5002 --hogan 5003",
+    "dev": "gulp",
+    "eslint": "eslint ./client/app ./client/src ./server/app ./server/src"
   },
   "author": {
     "name": "jonathan Perry for Sequence Media Limited",
@@ -23,10 +24,12 @@
     "body-parser": "^1.15.2",
     "commander": "^2.9.0",
     "cors": "^2.8.0",
+    "dotenv": "^2.0.0",
     "draft-js": "^0.8.1",
     "draft-js-export-html": "^0.4.0",
     "draft-js-export-markdown": "^0.2.0",
     "express": "^4.14.0",
+    "fs-extra": "^0.30.0",
     "nedb": "^1.8.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.0",
@@ -34,7 +37,9 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.5.2",
     "redux": "^3.5.2",
-    "redux-routes-renderer": "^1.2.0"
+    "redux-routes-renderer": "^1.2.0",
+    "hogan-cache": "^0.0.1",
+    "express-hogan-cache": "^0.0.1"
   },
   "devDependencies": {
     "babel-loader": "^6.2.4",
@@ -53,7 +58,7 @@
     "babel-plugin-transform-react-jsx": "^6.4.0",
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-preset-es2015": "^6.1.18",
-    "babel-preset-react": "^6.1.18",
+    "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-1": "^6.3.13",
     "babel-register": "^6.9.0",

@@ -14,6 +14,6 @@ export const GET_SKILLS = 'GET_SKILLS'
 export function getSkills () {
   return {
     type: GET_SKILLS,
-    promise: () => request.get(`/skills/view-model`)
+    promise: () => request.get('/skills/view-model')
   }
 }

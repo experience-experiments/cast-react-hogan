@@ -33,6 +33,16 @@ class Practices extends React.Component {
   }
 }
 
+Practices.propTypes = {
+  practices: React.PropTypes.array.isRequired,
+  dispatch: React.PropTypes.func.isRequired
+}
+
+Practices.defaultProps = {
+  practices: [],
+  dispatch: () => false
+}
+
 Practices.needs = [
   PracticesActions.getPractices
 ]

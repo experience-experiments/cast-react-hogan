@@ -9,7 +9,7 @@ const publicPath = path.resolve(processCwd, 'public')
 const layoutPath = path.join(serverPath, 'app/mvc/views')
 const assetsPath = path.join(publicPath, 'assets')
 
-const expressHoganCache = require(path.join(serverPath, 'lib/express-hogan-cache'))
+const expressHoganCache = require('express-hogan-cache') // path.join(serverPath, 'lib/express-hogan-cache'))
 
 const app = express()
 const server = http.createServer(app)

@@ -56,6 +56,18 @@ class ProfilePage extends React.Component {
   }
 }
 
+ProfilePage.propTypes = {
+  profile: React.PropTypes.object.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
+  params: React.PropTypes.object.isRequired
+}
+
+ProfilePage.defaultProps = {
+  profile: {},
+  dispatch: () => false,
+  params: {}
+}
+
 ProfilePage.needs = [
   ({ profile }) => ProfileActions.getProfile(profile)
 ]

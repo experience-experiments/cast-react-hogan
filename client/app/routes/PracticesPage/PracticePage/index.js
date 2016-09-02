@@ -48,6 +48,18 @@ class PracticePage extends React.Component {
   }
 }
 
+PracticePage.propTypes = {
+  practice: React.PropTypes.object.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
+  params: React.PropTypes.object.isRequired
+}
+
+PracticePage.defaultProps = {
+  practice: {},
+  dispatch: () => false,
+  params: {}
+}
+
 PracticePage.needs = [
   ({ practice }) => PracticeActions.getPractice(practice)
 ]

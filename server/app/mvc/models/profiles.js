@@ -13,6 +13,16 @@ function getAllProfiles () {
   })
 }
 
+function setAllProfiles (profiles, meta) {
+  throw Error /*
+  return new Promise((resolve, reject) => {
+    profilesDB.find({}, (e, profiles) => {
+      if (e) return reject(e)
+      resolve(profiles)
+    })
+  }) */
+}
+
 function getAllProfilesViewModel () {
   return new Promise((resolve, reject) => {
     profilesDB.find({}).sort({ name: 1 }).exec((e, profiles) => {
@@ -34,8 +44,8 @@ function getProfile (id) {
 function setProfile (id, profile, meta) {
   const { metaData } = profile
 
-  metaData.lastUpdateDate = meta.dateTime;
-  metaData.lastUpdatedBy = meta.user.fullName;
+  metaData.lastUpdateDate = meta.dateTime
+  metaData.lastUpdatedBy = meta.user.fullName
 
   return new Promise((resolve, reject) => {
     profilesDB.update({ _id: id }, profile, OPTIONS, (e, n, profile) => {
@@ -56,6 +66,7 @@ function getProfileViewModel (id) {
 
 module.exports = {
   getAllProfiles,
+  setAllProfiles,
   getAllProfilesViewModel,
   getProfile,
   setProfile,

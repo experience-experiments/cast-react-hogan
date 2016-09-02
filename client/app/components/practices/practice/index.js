@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ practice } ) => {
+export default function Practice ({ practice }) {
   const {
     name,
     owner,
@@ -44,4 +44,8 @@ export default ({ practice } ) => {
       })()}
     </dl>
   )
+}
+
+Practice.propTypes = {
+  practice: React.PropTypes.object.isRequired
 }

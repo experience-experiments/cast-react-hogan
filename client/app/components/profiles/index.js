@@ -33,6 +33,16 @@ class Profiles extends React.Component {
   }
 }
 
+Profiles.propTypes = {
+  profiles: React.PropTypes.array.isRequired,
+  dispatch: React.PropTypes.func.isRequired
+}
+
+Profiles.defaultProps = {
+  profiles: [],
+  dispatch: () => false
+}
+
 Profiles.needs = [
   ProfilesActions.getProfiles
 ]

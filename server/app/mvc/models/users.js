@@ -2,6 +2,8 @@ const Datastore = require('nedb')
 
 const userDB = new Datastore({ filename: process.cwd() + '/.db/users.db', autoload: true })
 
+const OPTIONS = { returnUpdatedDocs: true }
+
 function userViewModel (user) {
   const { authorities } = user
   authorities.sort()
@@ -15,6 +17,16 @@ function getAllUsers () {
       resolve(users)
     })
   })
+}
+
+function setAllUsers (users) {
+  throw Error /*
+  return new Promise((resolve, reject) => {
+    userDB.update(users, OPTIONS, (e, users) => {
+      if (e) return reject(e)
+      resolve(users)
+    })
+  }) */
 }
 
 function getAllUsersViewModel () {
@@ -35,6 +47,15 @@ function getUser (id) {
   })
 }
 
+function setUser (id, user) {
+  return new Promise((resolve, reject) => {
+    userDB.update({ _id: id }, user, OPTIONS, (e, user) => {
+      if (e) return reject(e)
+      resolve(user)
+    })
+  })
+}
+
 function getUserViewModel (id) {
   return new Promise((resolve, reject) => {
     userDB.findOne({ _id: id }, (e, user) => {
@@ -46,7 +67,9 @@ function getUserViewModel (id) {
 
 module.exports = {
   getAllUsers,
+  setAllUsers,
   getAllUsersViewModel,
   getUser,
+  setUser,
   getUserViewModel
 }

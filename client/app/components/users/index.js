@@ -33,6 +33,16 @@ class Users extends React.Component {
   }
 }
 
+Users.propTypes = {
+  users: React.PropTypes.array.isRequired,
+  dispatch: React.PropTypes.func.isRequired
+}
+
+Users.defaultProps = {
+  users: [],
+  dispatch: () => false
+}
+
 Users.needs = [
   UsersActions.getUsers
 ]

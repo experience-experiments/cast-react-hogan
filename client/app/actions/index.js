@@ -3,11 +3,17 @@
  */
 import axios from 'axios'
 
-const API_PROTOCOL = 'http'
-const API_HOST = 'localhost'
-const API_PORT = '5001'
-const API_BASEURL = 'api'
-const API_VERSION = 'v1'
+const AXIOS = ('AXIOS' in global)
+  ? global.AXIOS
+  : process.env
+
+const {
+  API_PROTOCOL,
+  API_HOST,
+  API_PORT,
+  API_BASEURL,
+  API_VERSION
+} = AXIOS
 
 axios.defaults.baseURL = `${API_PROTOCOL}://${API_HOST}:${API_PORT}/${API_BASEURL}/${API_VERSION}`
 

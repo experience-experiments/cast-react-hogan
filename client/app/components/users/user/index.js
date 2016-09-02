@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ user }) => {
+export default function User ({ user }) {
   const {
     email,
     authorities,
@@ -29,4 +29,8 @@ export default ({ user }) => {
       <dd>{String(enabled)}</dd>
     </dl>
   )
+}
+
+User.propTypes = {
+  user: React.PropTypes.object.isRequired
 }

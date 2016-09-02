@@ -41,6 +41,5 @@ pids
 coverage/
 npm-debug.log*
 
-./public/assets/js/app/**.*
-/public/assets/js/app/index.js
-/public/assets/js/app/index.js.map
+public/assets/js/app/**/*.*
+
