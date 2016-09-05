@@ -34,7 +34,7 @@ module.exports = {
       {
         test: /\.js?$/,
         loader: 'babel',
-        exclude: /node_modules\/(?!(ent|entities|express-hogan-cache|hogan-cache|react-draft-editor)).*/
+        exclude: /node_modules\/(?!(express-hogan-cache|hogan-cache|react-draft-editor)).*/
       }
     ]
   },

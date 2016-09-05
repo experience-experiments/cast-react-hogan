@@ -14,7 +14,7 @@ function getMeta () {
   return {
     dateTime: new Date().valueOf(),
     user: {
-      fullName: 'PDF Service'
+      fullName: 'RMA Cast React/Hogan'
     }
   }
 }
