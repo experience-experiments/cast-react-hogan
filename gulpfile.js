@@ -45,10 +45,10 @@ const writeFile = (p, f) => (
 
 gulp
   .task('default', ['clean', 'config', 'webpack', 'uglify', 'watch', 'server', 'watch-server'], () => {
-    console.log('[RMA Cast React/Hogan]')
+    console.log('[RMA Cast React + Hogan]')
   })
   .task('start', ['clean', 'config', 'webpack', 'uglify'], () => {
-    console.log('[RMA Cast React/Hogan (Start)]')
+    console.log('[RMA Cast React + Hogan (Start)]')
   })
   .task('clean', () => {
     return gulp.src(path.resolve(assetsPath, 'js/app/**/*.*'), { read: false })

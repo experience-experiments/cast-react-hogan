@@ -27,6 +27,6 @@ module.exports = {
     app.set('port', port)
     server.listen(port, '0.0.0.0')
     server.on('error', (e) => console.log(e))
-    server.on('listening', () => console.log(`[RMA Cast React/Hogan (React)] ${port}`))
+    server.on('listening', () => console.log(`[RMA Cast React + Hogan (React)] ${port}`))
   }
 }
