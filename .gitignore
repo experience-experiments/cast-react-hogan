@@ -42,4 +42,4 @@ coverage/
 npm-debug.log*
 
 public/assets/js/app/**/*.*
-
+.db
