@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rma-consulting/pdf-service.git"
+    "url": "git+https://github.com/rma-consulting/cast-react-hogan.git"
   },
   "license": "UNLICENSED",
   "dependencies": {
